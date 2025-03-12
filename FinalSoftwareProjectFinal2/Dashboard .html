@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Book Exchange & Purchase</title>
+    <link rel="stylesheet" href="Style/dashStyle.css">
+    <style>
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.logo img {
+    height: 70px;
+    background: rgba(117, 114, 114, 0.3);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(71, 62, 62, 0.9);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="imags/logo.jpeg" alt="ShelfTrade Logo">
+            <span>ShelfTrade</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="AddMyBook.html">Add Book</a></li>
+                <li><a href="MyBooks.html">My Book</a></li>
+                <li><a href="ExchangeRequests.html">Exchange Requests</a></li>
+                <li><a href="shelfTrade.html">Logout</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <div class="welcome-container">
+        <p class="welcome-message">Welcome Latefa</p>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="imags/panner2.png" alt="Book Exchange">
+        <h1>Discover & Exchange Books</h1>
+    </div>
+
+
+    <div class="container">
+        <div class="Search-Filter">
+            <input type="text" class="search-bar" placeholder="Search for a book...">
+            <select class="filter">
+                <option value="all">All Categories</option>
+                <option value="literature">Literature</option>
+                <option value="history">History</option>
+                <option value="novels">Novels</option>
+                <option value="philosophy">Philosophy</option>
+            </select>
+        </div>
+        
+        <main class="books-container">
+            <div class="book-card">
+                <img src="imags/روايه1.jpg" alt="Book 1">
+                <p class="book-price">25 SAR</p>
+                <h3 class="book-title" dir="rtl">عداء الطائره الورقيه</h3>
+                <p class="book-category">Category: Novels</p>
+                <p class="book-description">A touching story of friendship, betrayal, and redemption in Afghanistan.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/فلسفه1.jpg" alt="Book 2">
+                <p class="book-price">30 SAR</p>
+                <h3 class="book-title" dir="rtl">التداوي بالفلسفه</h3>
+                <p class="book-category">Category: Philosophy</p>
+                <p class="book-description">Exploring how philosophy can help navigate life's challenges.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/تاريخ1.jpg" alt="Book 3">
+                <p class="book-price">22 SAR</p>
+                <h3 class="book-title" dir="rtl">الملك فيصل الاول</h3>
+                <p class="book-category">Category: History</p>
+                <p class="book-description">A historical account of King Faisal I and his role in Arab nationalism.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/ادب2.jpg" alt="Book 4">
+                <p class="book-price">27 SAR</p>
+                <h3 class="book-title" dir="rtl">صاحب الظل الطويل</h3>
+                <p class="book-category">Category: Literature</p>
+                <p class="book-description">A heartwarming novel told through letters from an orphan to her unknown benefactor.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/روايه2.jpg" alt="Book 5">
+                <p class="book-price">29 SAR</p>
+                <h3 class="book-title" dir="rtl">عرين الاسد</h3>
+                <p class="book-category">Category: Novels</p>
+                <p class="book-description">A fantasy novel about an epic battle between light and darkness.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/فلسفه2.jpg" alt="Book 6">
+                <p class="book-price">24 SAR</p>
+                <h3 class="book-title" dir="rtl">نظريه الانسان</h3>
+                <p class="book-category">Category: Philosophy</p>
+                <p class="book-description">An analysis of Al-Farabi’s philosophical views on human nature and society.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/تاريخ2.jpg" alt="Book 7">
+                <p class="book-price">26 SAR</p>
+                <h3 class="book-title" dir="rtl">تاريخ العرب</h3>
+                <p class="book-category">Category: History</p>
+                <p class="book-description">A concise overview of Arab history and the development of Islamic civilization.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+            <div class="book-card">
+                <img src="imags/ادب3.jpg" alt="Book 8">
+                <p class="book-price">28 SAR</p>
+                <h3 class="book-title" dir="rtl">ظل الريح</h3>
+                <p class="book-category">Category: Literature</p>
+                <p class="book-description">A mysterious novel about a lost book that unveils dark secrets in Barcelona.</p>
+                <button class="buy-btn" onclick="addToCart(this)">Buy</button>
+                <button class="exchange-btn">Request Exchange</button>
+            </div>
+        </main>
+        
+        <a href="CartPage.html" class="to-cart">To Cart</a>
+
+    </div>
+
+    <!--search bar-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBar = document.querySelector(".search-bar");
+            const books = document.querySelectorAll(".book-card");
+    
+            searchBar.addEventListener("keyup", function () {
+                const searchText = searchBar.value.toLowerCase();
+    
+                books.forEach(book => {
+                    const title = book.querySelector(".book-title").textContent.toLowerCase();
+                    
+                    if (title.includes(searchText)) {
+                        book.style.display = "block";
+                    } else {
+                        book.style.display = "none";
+                    }
+                });
+                const visibleBooks = Array.from(books).some(book => book.style.display === "block");
+                if (!visibleBooks) {
+                    document.querySelector(".no-results")?.remove();
+                    const noResults = document.createElement("p");
+                    noResults.classList.add("no-results");
+                    noResults.textContent = "no result";
+                    noResults.style.color = "plack";
+                    noResults.style.fontSize = "18px";
+                    noResults.style.fontWeight = "bold";
+                    document.querySelector(".books-container").appendChild(noResults);
+                } else {
+                    document.querySelector(".no-results")?.remove();
+                }
+            });
+        });
+    </script>
+      <!--end search bar-->
+      <!--filter-->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBar = document.querySelector(".search-bar");
+            const filterSelect = document.querySelector(".filter");
+            const books = document.querySelectorAll(".book-card");
+    
+            function filterBooks() {
+                const searchText = searchBar.value.toLowerCase();
+                const selectedCategory = filterSelect.value.toLowerCase();
+    
+                let hasResults = false;
+    
+                books.forEach(book => {
+                    const title = book.querySelector(".book-title").textContent.toLowerCase();
+                    const category = book.querySelector(".book-category").textContent.toLowerCase();
+                    const description = book.querySelector(".book-description").textContent.toLowerCase();
+    
+                    // Check if the book matches the search and category filter
+                    const matchesSearch = title.includes(searchText) || description.includes(searchText);
+                    const matchesCategory = selectedCategory === "all" || category.includes(selectedCategory);
+    
+                    if (matchesSearch && matchesCategory) {
+                        book.style.display = "block";
+                        hasResults = true;
+                    } else {
+                        book.style.display = "none";
+                    }
+                });
+    
+                // Display "No results found" message if no books match
+                document.querySelector(".no-results")?.remove();
+                if (!hasResults) {
+                    const noResults = document.createElement("p");
+                    noResults.classList.add("no-results");
+                    noResults.textContent = "No books found.";
+                    noResults.style.color = "plack";
+                    noResults.style.fontSize = "18px";
+                    noResults.style.fontWeight = "bold";
+                    document.querySelector(".books-container").appendChild(noResults);
+                }
+            }
+    
+            // Trigger filtering when typing in the search bar or selecting a category
+            searchBar.addEventListener("keyup", filterBooks);
+            filterSelect.addEventListener("change", filterBooks);
+        });
+    </script>
+<!--end filter-->
+<!--requst notification-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const exchangeButtons = document.querySelectorAll(".exchange-btn");
+
+        exchangeButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                
+                const notification = document.createElement("div");
+                notification.classList.add("notification");
+                notification.textContent = "✅ Request Sent Successfully!";
+                document.body.appendChild(notification);
+                setTimeout(() => {
+                    notification.style.opacity = "0"; 
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 500);
+                }, 3000);  });  });
+            });
+</script>
+<!--end requst notification-->
+
+<!--buy button-->
+<script>
+    function addToCart(button) {
+        const bookCard = button.closest(".book-card");
+        const title = bookCard.querySelector(".book-title").textContent;
+        const priceText = bookCard.querySelector(".book-price").textContent;
+        const price = parseFloat(priceText.replace("SAR", "").trim());
+        const image = bookCard.querySelector("img").src;
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ title, price, image });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // عرض إشعار للمستخدم
+        const notification = document.createElement("div");
+        notification.classList.add("notification");
+        notification.textContent = "✅ Book added to cart!";
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.opacity = "0";
+            setTimeout(() => {
+                notification.remove();
+            }, 500);
+        }, 3000);
+    }
+</script>
+<!--end buy button-->
+<!--add book and delete from mybook page -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dashboardBooksList = document.querySelector(".books-container");
+
+        function displayBooksInDashboard() {
+            let books = JSON.parse(localStorage.getItem("books")) || [];
+
+            books.forEach((book) => {
+                const bookCard = document.createElement("div");
+                bookCard.classList.add("book-card");
+
+                bookCard.innerHTML = `
+                    <img src="${book.imageSrc}" alt="${book.title}">
+                    <p class="book-price">${book.price} SAR </p>
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-description">${book.description}</p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="exchange-btn">Request Exchange</button>
+                `;
+
+                dashboardBooksList.appendChild(bookCard);
+            });
+        }
+
+        displayBooksInDashboard();
+
+        // ✅ تحديث الكتب عند إضافة أو حذف من MyBooks.html
+        window.addEventListener("storage", function (event) {
+            if (event.key === "updateDashboard") {
+                dashboardBooksList.innerHTML = ""; // مسح الكتب القديمة
+                displayBooksInDashboard(); // عرض الكتب المحدثة
+            }
+        });
+    });
+</script>
+
+<footer>
+    <div class="footer-content">
+        <p style="color:rgba(71, 62, 62, 0.9)">&copy; 2025 ShelfTrade. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

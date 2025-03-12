@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="Style/cartStyle.css">
+
+</head>
+
+<body>
+    <a href="Dashboard.html" class="dashboard-btn">Exit To Dashboard</a>
+    <div class="container">
+        <h1>🛒 Shopping Cart</h1>
+        <div id="cart-items" class="books-container"></div>
+        <h2 id="total-price">Total Price: 0 SAR</h2>
+        <button id="clear-cart" class="buy-btn">Clear Cart</button>
+        <button id="checkout" class="buy-btn">Checkout (Cash Only)</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            const totalPriceElement = document.getElementById("total-price");
+            const clearCartButton = document.getElementById("clear-cart");
+            const checkoutButton = document.getElementById("checkout");
+            
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cartItemsContainer.innerHTML = "";
+                let total = 0;
+                
+                cart.forEach((book, index) => {
+                    const bookCard = document.createElement("div");
+                    bookCard.classList.add("book-card");
+
+                    bookCard.innerHTML = `
+                        <img src="${book.image}" alt="${book.title}">
+                        <div class="book-info">
+                            <h3 class="book-title">${book.title}</h3>
+                            <p class="book-price">${book.price} SAR</p>
+                        </div>
+                        <button class="remove-btn" data-index="${index}">🗑️ Remove</button>
+                    `;
+
+                    cartItemsContainer.appendChild(bookCard);
+                    total += book.price;
+                });
+                
+                totalPriceElement.textContent = `Total Price: ${total.toFixed(2)} SAR`;
+            }
+            
+            cartItemsContainer.addEventListener("click", function(event) {
+                if (event.target.classList.contains("remove-btn")) {
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    const index = event.target.getAttribute("data-index");
+                    cart = cart.filter((_, i) => i != index);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    loadCart();
+                }
+            });
+            
+            clearCartButton.addEventListener("click", function() {
+                localStorage.removeItem("cart");
+                loadCart();
+            });
+            
+            checkoutButton.addEventListener("click", function() {
+                alert("✅ Purchase completed successfully! Payment on delivery.");
+                localStorage.removeItem("cart");
+                loadCart();
+            });
+            
+            loadCart();
+        });
+    </script>
+
+
+ <!-- Rating Modal -->
+ <div id="rating-modal" class="modal">
+    <div class="modal-content">
+        <h3>Rate Your Experience</h3>
+        <div class="stars">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <button id="submit-rating">Submit Rating</button>
+        <button id="close-modal">Close</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const checkoutButton = document.getElementById("checkout");
+        const ratingModal = document.getElementById("rating-modal");
+        const stars = document.querySelectorAll(".star");
+        const submitRating = document.getElementById("submit-rating");
+        const closeModal = document.getElementById("close-modal");
+        let selectedRating = 0;
+
+        checkoutButton.addEventListener("click", function() {
+            if (!checkoutButton.disabled) {
+                checkoutButton.disabled = true;
+                alert("✅ Purchase completed successfully! Payment on delivery.");
+                localStorage.removeItem("cart");
+                setTimeout(() => {
+                    ratingModal.style.display = "block";
+                    checkoutButton.disabled = false;
+                }, 500);
+            }
+        });
+
+        stars.forEach(star => {
+            star.addEventListener("mouseover", function() {
+                const value = this.getAttribute("data-value");
+                stars.forEach(s => s.classList.remove("selected"));
+                for (let i = 0; i < value; i++) {
+                    stars[i].classList.add("selected");
+                }
+            });
+            star.addEventListener("click", function() {
+                selectedRating = this.getAttribute("data-value");
+            });
+        });
+
+        submitRating.addEventListener("click", function() {
+            alert(`Thank you for rating us ${selectedRating} stars!`);
+            ratingModal.style.display = "none";
+        });
+
+        closeModal.addEventListener("click", function() {
+            ratingModal.style.display = "none";
+        });
+    });
+</script>
+    <!-- end Rating Modal -->
+</body>
+</html>

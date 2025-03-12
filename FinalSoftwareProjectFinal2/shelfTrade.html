@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShelfTrade - Your Trading Hub</title>
+    <link rel="stylesheet" href="Style/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="imags/logo.jpeg" alt="ShelfTrade Logo">
+            <span>ShelfTrade</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="SignUP.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover <span>ShelfTrade</span> – Your Trusted Book Exchange Platform</h1>
+            <p>Join our community to trade books easily, explore exciting collections, and connect with fellow readers.</p>
+            <a href="SignUP.html" class="btn">Get Started</a>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p style="color:rgba(71, 62, 62, 0.9)">&copy; 2025 ShelfTrade. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        gsap.from(".hero-content h1", { opacity: 0, y: -50, duration: 1, delay: 0.5 });
+        gsap.from(".hero-content p", { opacity: 0, y: 50, duration: 1, delay: 1 });
+        gsap.from(".btn", { opacity: 0, scale: 0.8, duration: 1, delay: 1.5 });
+    </script>
+</body>
+</html>
